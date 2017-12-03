@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 $this->title = Yii::t('app', 'Orders');
 
-$this->registerJsFile('/js/vue.js', [ 'position' => $this::POS_HEAD ]);
+$this->registerJsFile('/js/vue.min.js', [ 'position' => $this::POS_HEAD ]);
 	$this->registerJsFile('/js/vee-validate/vee-validate.js', [ 'position' => $this::POS_HEAD ]);
 		$this->registerJsFile('/js/vee-validate/locale/ru.js', [ 'position' => $this::POS_HEAD ]);
 	$this->registerJsFile('/js/uiv.min.js', [ 'position' => $this::POS_HEAD ]);
