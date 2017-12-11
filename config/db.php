@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=k-gorod-test',
-    'username' => 'root',
-    'password' => 'root',
+    'dsn' => 'mysql:host=localhost;dbname=order_db',
+    'username' => 'order_user',
+    'password' => 'password',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)

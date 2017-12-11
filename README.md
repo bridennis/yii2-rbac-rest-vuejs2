@@ -31,9 +31,9 @@
 ```php
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=k-gorod-test',
-    'username' => 'root',
-    'password' => '1234',
+    'dsn' => 'mysql:host=localhost;dbname=order_db',
+    'username' => 'order_user',
+    'password' => 'password',
     'charset' => 'utf8',
 ];
 ```

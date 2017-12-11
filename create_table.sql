@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `k-gorod-test`
+-- База данных: `order_db`
 --
-CREATE DATABASE IF NOT EXISTS `k-gorod-test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `k-gorod-test`;
+CREATE DATABASE IF NOT EXISTS `order_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `order_db`;
 
 -- --------------------------------------------------------
 
