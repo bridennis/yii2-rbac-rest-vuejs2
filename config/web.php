@@ -7,7 +7,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-		'language' => 'ru-RU',
+        'language' => 'ru-RU',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -15,9 +15,9 @@ $config = [
     'components' => [
         'request' => [
             'cookieValidationKey' => '2QymC9dMse7qUVFdUq7eWRY2t68PSSuq',
-						'parsers' => [
-								'application/json' => 'yii\web\JsonParser',
-						]
+                'parsers' => [
+                        'application/json' => 'yii\web\JsonParser',
+                ]
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -44,35 +44,35 @@ $config = [
         'db' => $db,
         'urlManager' => [
             'enablePrettyUrl' => true,
-//						'enableStrictParsing' => true,
+//			'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-							[
-                'class' => 'yii\rest\UrlRule',
-                'controller' => 'order'
-               ],
-							'/' => 'site/index',
-							'<action:\w+>' => 'site/<action>',
-						],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'order'
+                ],
+                '/' => 'site/index',
+                '<action:\w+>' => 'site/<action>',
+            ],
         ],
-				'view' => [
-						'theme' => [
-								'pathMap' => [
-										'@dektrium/user/views' => '@app/views/user'
-								],
-						],
-				],				
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                        '@dektrium/user/views' => '@app/views/user'
+                ],
+            ],
+        ],
     ],
-		'modules' => [
-			'user' => [
-					'class' => 'dektrium\user\Module',
-					'admins' => ['admin'],
-					'enableRegistration' => false,
-					'enableConfirmation' => false,
-					'enablePasswordRecovery' => false,
-			],						
-			'rbac' => 'dektrium\rbac\RbacWebModule',
-		],
+    'modules' => [
+        'user' => [
+                'class' => 'dektrium\user\Module',
+                'admins' => ['admin'],
+                'enableRegistration' => false,
+                'enableConfirmation' => false,
+                'enablePasswordRecovery' => false,
+        ],
+        'rbac' => 'dektrium\rbac\RbacWebModule',
+    ],
     'params' => $params,
 ];
 

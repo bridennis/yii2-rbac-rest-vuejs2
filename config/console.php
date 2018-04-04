@@ -30,12 +30,12 @@ $config = [
         ],
     ],
     */
-		'modules' => [
-				'user' => [
-						'class' => 'dektrium\user\Module',
-				],
-				'rbac' => 'dektrium\rbac\RbacConsoleModule',
-		],		
+    'modules' => [
+            'user' => [
+                    'class' => 'dektrium\user\Module',
+            ],
+            'rbac' => 'dektrium\rbac\RbacConsoleModule',
+    ],
 ];
 
 if (YII_ENV_DEV) {

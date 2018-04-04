@@ -3,18 +3,17 @@
 namespace app\rbac;
 
 use yii\rbac\Rule;
-use app\models\Order;
 
 /**
- * Rule äëÿ ïğîâåğêè ïğèíàäëåæíîñòè çàêàçà ïîëüçîâàòåëş.
+ * Rule Ğ´Ğ»Ñ Ğ¿Ñ€Ğ¾Ğ²ĞµÑ€ĞºĞ¸ Ğ¿Ñ€Ğ¸Ğ½Ğ°Ğ´Ğ»ĞµĞ¶Ğ½Ğ¾ÑÑ‚Ğ¸ Ğ·Ğ°ĞºĞ°Ğ·Ğ° Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ.
  *
  */
  
 class UserRule extends Rule
 {
-	public $name = 'isUser';
-	public function execute($user, $item, $params)
-	{
-		return isset($params['order']) ? $params['order']->user_id == $user : false;
-	}
+    public $name = 'isUser';
+    public function execute($user, $item, $params)
+    {
+        return isset($params['order']) ? $params['order']->user_id == $user : false;
+    }
 }

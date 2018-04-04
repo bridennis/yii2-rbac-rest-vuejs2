@@ -17,16 +17,16 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-	'Orders' => 'Заказы',
-	'Create Order' => 'Создать заказ',
-	'Date' => 'Датa размещения',
-	'ID' => 'ID',
-	'Description' => 'Описание',
-	'Order cost' => 'Сумма заказа',
-	'Order type' => 'Тип заказа',
-	'User' => 'Пользователь',
-	'Edit' => 'Редактировать',
-	'Delete' => 'Удалить',
-	'Action' => 'Действие',
-	'Apply' => 'Применить',
+    'Orders' => 'Заказы',
+    'Create Order' => 'Создать заказ',
+    'Date' => 'Датa размещения',
+    'ID' => 'ID',
+    'Description' => 'Описание',
+    'Order cost' => 'Сумма заказа',
+    'Order type' => 'Тип заказа',
+    'User' => 'Пользователь',
+    'Edit' => 'Редактировать',
+    'Delete' => 'Удалить',
+    'Action' => 'Действие',
+    'Apply' => 'Применить',
 ];

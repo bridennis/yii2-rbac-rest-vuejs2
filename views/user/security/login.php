@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'validateOnChange' => false,
                 ]) ?>
 
-                <?php if ($module->debug): ?>
+                <?php if ($module->debug) : ?>
                     <?= $form->field($model, 'login', [
                         'inputOptions' => [
                             'autofocus' => 'autofocus',
@@ -50,35 +50,40 @@ $this->params['breadcrumbs'][] = $this->title;
                             'tabindex' => '1']])->dropDownList(LoginForm::loginList());
                     ?>
 
-                <?php else: ?>
-
-                    <?= $form->field($model, 'login',
+                <?php else : ?>
+                    <?= $form->field(
+                        $model,
+                        'login',
                         ['inputOptions' => ['autofocus' => 'autofocus', 'class' => 'form-control', 'tabindex' => '1']]
                     );
                     ?>
 
                 <?php endif ?>
 
-                <?php if ($module->debug): ?>
+                <?php if ($module->debug) : ?>
                     <div class="alert alert-warning">
-                        <?= Yii::t('user', 'Password is not necessary because the module is in DEBUG mode.'); ?>
+                        <?= Yii::t(
+                            'user',
+                            'Password is not necessary because the module is in DEBUG mode.'
+                        ); ?>
                     </div>
-                <?php else: ?>
+                <?php else : ?>
                     <?= $form->field(
                         $model,
                         'password',
-                        ['inputOptions' => ['class' => 'form-control', 'tabindex' => '2']])
-                        ->passwordInput()
-                        ->label(
-                            Yii::t('user', 'Password')
-                            . ($module->enablePasswordRecovery ?
-                                ' (' . Html::a(
-                                    Yii::t('user', 'Forgot password?'),
-                                    ['/user/recovery/request'],
-                                    ['tabindex' => '5']
-                                )
-                                . ')' : '')
-                        ) ?>
+                        ['inputOptions' => ['class' => 'form-control', 'tabindex' => '2']]
+                    )
+                    ->passwordInput()
+                    ->label(
+                        Yii::t('user', 'Password')
+                        . ($module->enablePasswordRecovery ?
+                            ' (' . Html::a(
+                                Yii::t('user', 'Forgot password?'),
+                                ['/user/recovery/request'],
+                                ['tabindex' => '5']
+                            )
+                            . ')' : '')
+                    ) ?>
                 <?php endif ?>
 
                 <?= $form->field($model, 'rememberMe')->checkbox(['tabindex' => '3']) ?>
@@ -90,23 +95,23 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?php ActiveForm::end(); ?>
             </div>
-						
+
         </div>
-				
-				<div class="alert alert-info" role="alert">
-					Тестовые пользователи (имя / пароль):<br>
-					<ul>
-						<li><b>user</b> / <b>123456</b></li>
-						<li><b>admin</b> / <b>654321</b></li>
-					</ul>
-				</div>
-				
-        <?php if ($module->enableConfirmation): ?>
+
+        <div class="alert alert-info" role="alert">
+            Тестовые пользователи (имя / пароль):<br>
+            <ul>
+                <li><b>user</b> / <b>123456</b></li>
+                <li><b>admin</b> / <b>654321</b></li>
+            </ul>
+        </div>
+
+        <?php if ($module->enableConfirmation) : ?>
             <p class="text-center">
                 <?= Html::a(Yii::t('user', 'Didn\'t receive confirmation message?'), ['/user/registration/resend']) ?>
             </p>
         <?php endif ?>
-        <?php if ($module->enableRegistration): ?>
+        <?php if ($module->enableRegistration) : ?>
             <p class="text-center">
                 <?= Html::a(Yii::t('user', 'Don\'t have an account? Sign up!'), ['/user/registration/register']) ?>
             </p>

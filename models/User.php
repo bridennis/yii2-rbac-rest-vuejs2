@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use Yii;
+use \yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "user".
@@ -12,7 +12,7 @@ use Yii;
  *
  * @property Order[] $orders
  */
-class User extends \yii\db\ActiveRecord
+class User extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -27,7 +27,7 @@ class User extends \yii\db\ActiveRecord
      */
     public function getOrders()
     {
-			// a User has many orders
-       return $this->hasMany(Order::className(), ['user_id' => 'id']);
+        // a User has many orders
+        return $this->hasMany(Order::class, ['user_id' => 'id']);
     }
 }

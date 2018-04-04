@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use \yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "order".
@@ -15,7 +16,7 @@ use Yii;
  *
  * @property User $user
  */
-class Order extends \yii\db\ActiveRecord
+class Order extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -33,10 +34,10 @@ class Order extends \yii\db\ActiveRecord
         return [
             [['descr', 'cost'], 'required'],
             [['order_date'], 'safe'],
-						[['order_date'], 'default', 'value' => date('Y-m-d')],
-						[['order_date'], 'date', 'format' => 'Y-m-d'],
+                [['order_date'], 'default', 'value' => date('Y-m-d')],
+                [['order_date'], 'date', 'format' => 'Y-m-d'],
             [['user_id'], 'integer'],
-						[['user_id'], 'default', 'value' => Yii::$app->user->id],
+                [['user_id'], 'default', 'value' => Yii::$app->user->id],
             [['cost'], 'number'],
             [['descr'], 'string', 'max' => 255],
         ];
@@ -55,20 +56,19 @@ class Order extends \yii\db\ActiveRecord
             'user_id' => Yii::t('app', 'User'),
         ];
     }
-		
-		public function fields()
-		{
-				$fields = parent::fields();
-				$fields['username'] = function () {
-						return $this->user->username ? $this->user->username : null;
-				};
-				return $fields;
-		}
-		
+
+    public function fields()
+    {
+            $fields = parent::fields();
+            $fields['username'] = function () {
+                    return $this->user->username ? $this->user->username : null;
+            };
+            return $fields;
+    }
+
     public function getUser()
     {
         // an Order has one User
         return $this->hasOne(User::className(), ['id' => 'user_id']);
-    }		
-
+    }
 }
