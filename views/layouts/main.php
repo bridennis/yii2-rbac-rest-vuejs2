@@ -3,11 +3,9 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use app\widgets\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
@@ -29,35 +27,35 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-			'brandLabel' => 'Панель управления: Заказы',
-			'brandUrl' => Yii::$app->homeUrl,
-			'options' => [
-				'class' => 'navbar-inverse navbar-fixed-top',
-			],
+            'brandLabel' => 'Панель управления: Заказы',
+            'brandUrl' => Yii::$app->homeUrl,
+            'options' => [
+                'class' => 'navbar-inverse navbar-fixed-top',
+            ],
     ]);
     echo Nav::widget([
-			'options' => ['class' => 'navbar-nav navbar-right'],
-			'items' => [
-				[
-					'label' => 'Администрирование',
-					'items' => [
-						['label' => 'Пользователи', 'url' => ['/user/admin/index'],],
-					],
-					'visible' => Yii::$app->user->can('admin')
-				],
-				Yii::$app->user->isGuest ? (
-					['label' => 'Вход', 'url' => ['/user/security/login']]
-				) : (
-					'<li>'
-					. Html::beginForm(['/user/security/logout'], 'post')
-					. Html::submitButton(
-						'Выход (' . Yii::$app->user->identity->username . ')',
-						['class' => 'btn btn-link logout']
-					)
-					. Html::endForm()
-					. '</li>'
-				)
-			],
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => [
+                [
+                    'label' => 'Администрирование',
+                    'items' => [
+                        ['label' => 'Пользователи', 'url' => ['/user/admin/index'],],
+                    ],
+                    'visible' => Yii::$app->user->can('admin')
+                ],
+                Yii::$app->user->isGuest ? (
+                    ['label' => 'Вход', 'url' => ['/user/security/login']]
+                ) : (
+                    '<li>'
+                    . Html::beginForm(['/user/security/logout'], 'post')
+                    . Html::submitButton(
+                        'Выход (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'btn btn-link logout']
+                    )
+                    . Html::endForm()
+                    . '</li>'
+                )
+            ],
     ]);
     NavBar::end();
     ?>
