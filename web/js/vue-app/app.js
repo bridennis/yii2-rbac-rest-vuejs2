@@ -161,29 +161,27 @@ var vm = new Vue({
 		
     deleteOrder: function (id) {
 			
-			var self = this;
-				
-			this.$confirm({
-				content: 'Удалить заказ № [' + id + ']?'
-			})
-			.then(() => {
-				
-				$.ajax({
-					method: 'DELETE',
-					url: '/orders/' + id,
-				})
-				.done( function (data) {
-					
-					self.reloadOrder();
-					self.notifySuccess('Удаление завершено!');
+		var self = this;
 
-				})
-				.fail( function (data) {
-					self.notifyWarning('Ошибка удаления');					
-				});
-				
-      });
-					
+		this.$confirm({
+			content: 'Удалить заказ № [' + id + ']?'
+		})
+		.then(function() {
+
+			$.ajax({
+				method: 'DELETE',
+				url: '/orders/' + id,
+			})
+			.done( function (data) {
+
+				self.reloadOrder();
+				self.notifySuccess('Удаление завершено!');
+
+			})
+			.fail( function (data) {
+				self.notifyWarning('Ошибка удаления');
+			});
+		});
     },
 		
 	// Нотификаторы
