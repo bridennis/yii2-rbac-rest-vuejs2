@@ -9,36 +9,42 @@
     <br>
 </p>
 
-- Back-end проекта создан на Yii 2 Basic Project Template
+- Back-end: Yii 2
     - Аутентификация и авторизация RBAC на модулях <a href="https://github.com/dektrium/yii2-user" target="_blank">yii2-user</a> и <a href="https://github.com/dektrium/yii2-rbac" target="_blank">yii2-rbac</a>
-- Front-end проекта на VueJS 2
+- Front-end: VueJS 2
     - UI использует плагин <a href="http://vee-validate.logaretm.com/" target="_blank">VeeValidate</a> и компоненты <a href="https://uiv.wxsm.space/" target="_blank">UIV</a>
 
 
 ТРЕБОВАНИЯ
 ----------
 
-Проект создавался на платформе Apache 2, MariaDB 5.5, PHP 7.1
+Платформа: Nginx, MySQL 5.7, PHP 7.1.x
 
 
-КОНФИГУРИРОВАНИЕ
-----------------
+УСТАНОВКА
+---------
 
-### Database
+Устанавливаем (если необходимо) ```docker-composer``` [[ссылка]](https://docs.docker.com/compose/install/)
 
-Отредактируйте файл `config/db.php` заменив в нем значения данными необходимыми для подключения к вашей БД, к примеру:
+Запускаем из корневой папки проекта:
 
-```php
-return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=order_db',
-    'username' => 'order_user',
-    'password' => 'password',
-    'charset' => 'utf8',
-];
+```
+dc up -d
+
+dc exec yii2 sh -c "composer install"
+
+chmod a+x www/yii
+
+dc exec yii2 sh -c "yes | ./yii migrate"
+
+chmod a+w www/web/assets/ www/runtime/
+
 ```
 
-- В файле `create_table.sql` находятся все необходимые запросы для инициализации БД (движок InnoDB)
+ЗАПУСК
+------
+
+Веб интерфейс доступен по адресу: [http://localhost/](http://localhost/)
 
 РАЗРАБОТЧИК ОСОЗНАЁТ:
 ----------------

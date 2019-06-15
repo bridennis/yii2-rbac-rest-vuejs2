@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use yii\db\ActiveQuery;
 use \yii\db\ActiveRecord;
 
 /**
@@ -9,8 +10,8 @@ use \yii\db\ActiveRecord;
  *
  * @property integer $id
  * @property string $name
- *
  * @property Order[] $orders
+ * @property string $username
  */
 class User extends ActiveRecord
 {
@@ -23,7 +24,7 @@ class User extends ActiveRecord
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getOrders()
     {

@@ -35,7 +35,7 @@ class Order extends ActiveRecord
             [['descr', 'cost'], 'required'],
             [['order_date'], 'safe'],
                 [['order_date'], 'default', 'value' => date('Y-m-d')],
-                [['order_date'], 'date', 'format' => 'Y-m-d'],
+                [['order_date'], 'date', 'format' => 'php:Y-m-d'],
             [['user_id'], 'integer'],
                 [['user_id'], 'default', 'value' => Yii::$app->user->id],
             [['cost'], 'number'],
@@ -61,7 +61,7 @@ class Order extends ActiveRecord
     {
             $fields = parent::fields();
             $fields['username'] = function () {
-                    return $this->user->username ? $this->user->username : null;
+                return $this->user->username ?: null;
             };
             return $fields;
     }
@@ -69,6 +69,6 @@ class Order extends ActiveRecord
     public function getUser()
     {
         // an Order has one User
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(User::class, ['id' => 'user_id']);
     }
 }

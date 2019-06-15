@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  yii2-mysql:
+    container_name: yii2-mysql
+    image: mysql/mysql-server:${MYSQL_VERSION}
+    env_file:
+      - .env
+    volumes:
+      - ./conf/my.cnf:/etc/my.cnf
+      - ./data:/var/lib/mysql
+    restart: unless-stopped
+
+  yii2:
+    container_name: yii2
+    image: bridennis/anpx:7.1
+    env_file:
+      - .env
+    volumes:
+      - ./www:/var/www/html
+      - ./conf/:/usr/etc/
+      - ./data:/var/lib/mysql
+    ports:
+      - "80:80"
+    restart: always
+    command: /bin/sh -c "/usr/sbin/php-fpm
+      && envsubst '$$MYSQL_DATABASE $$MYSQL_USER $$MYSQL_PASSWORD' < /usr/etc/nginx.conf > /usr/local/nginx/conf/default.conf
+      && /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/default.conf"
