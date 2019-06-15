@@ -6,6 +6,8 @@
 
 Работу с заказами оформите в виде SPA на базе фронтенд фреймворка VueJS 2.
 
+Доступ к заказам разграничить по пользователям.
+
 ---
 
 Реализация
@@ -15,10 +17,10 @@
     <a href="https://www.yiiframework.com/" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px" />
     </a>
-    <a href="https://vuejs.org/ target="_blank">
+    <a href="https://vuejs.org/" target="_blank">
         <img src="https://vuejs.org/images/logo.png" height="100px" />
     </a>
-    <h1 align="center">Yii 2 + VueJS</h1>
+    <h1 align="center">Yii2 + VueJS 2</h1>
     <br>
 </p>
 
@@ -31,7 +33,7 @@
 Требования
 ---
 
-Платформа: Nginx, MySQL 5.7, PHP 7.1.x
+Платформа: Nginx (Apache), MySQL 5.7, PHP 7.1.x
 
 
 Установка (Deployment)
