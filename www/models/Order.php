@@ -33,13 +33,15 @@ class Order extends ActiveRecord
     {
         return [
             [['descr', 'cost'], 'required'],
-            [['order_date'], 'safe'],
-                [['order_date'], 'default', 'value' => date('Y-m-d')],
-                [['order_date'], 'date', 'format' => 'php:Y-m-d'],
-            [['user_id'], 'integer'],
-                [['user_id'], 'default', 'value' => Yii::$app->user->id],
             [['cost'], 'number'],
             [['descr'], 'string', 'max' => 255],
+
+            [['order_date'], 'safe'],
+            [['order_date'], 'default', 'value' => date('Y-m-d')],
+            [['order_date'], 'date', 'format' => 'php:Y-m-d'],
+
+            [['user_id'], 'integer'],
+            [['user_id'], 'default', 'value' => Yii::$app->user->id],
         ];
     }
 
@@ -59,11 +61,11 @@ class Order extends ActiveRecord
 
     public function fields()
     {
-            $fields = parent::fields();
-            $fields['username'] = function () {
-                return $this->user->username ?: null;
-            };
-            return $fields;
+        $fields = parent::fields();
+        $fields['username'] = function () {
+            return $this->user->username ?: null;
+        };
+        return $fields;
     }
 
     public function getUser()

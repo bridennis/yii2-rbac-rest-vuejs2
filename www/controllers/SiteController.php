@@ -13,11 +13,10 @@ class SiteController extends Controller
      */
     public function behaviors()
     {
-        $behaviors = parent::behaviors();
         $behaviors['access'] = [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'ruleConfig' => [
-                        'class' => AccessRule::className(),
+                        'class' => AccessRule::class,
                 ],
                 'rules' => [
                         [
