@@ -33,7 +33,7 @@ class Order extends ActiveRecord
     {
         return [
             [['descr', 'cost'], 'required'],
-            [['cost'], 'number'],
+            [['cost'], 'integer'],
             [['descr'], 'string', 'max' => 255],
 
             [['order_date'], 'safe'],
@@ -72,5 +72,27 @@ class Order extends ActiveRecord
     {
         // an Order has one User
         return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
+
+    protected function sumToBill($cost)
+    {
+        return number_format($cost / 100, 2, null, '');
+    }
+
+    protected function sumToCoin($cost)
+    {
+        return number_format($cost * 100, 0, null, '');
+    }
+
+    public function afterFind()
+    {
+        parent::afterFind();
+        $this->cost = $this->sumToBill($this->cost);
+    }
+
+    public function beforeValidate()
+    {
+        $this->cost = $this->sumToCoin($this->cost);
+        return parent::beforeValidate();
     }
 }
