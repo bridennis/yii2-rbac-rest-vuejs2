@@ -15,14 +15,14 @@
     "minimum-stability": "stable",
     "require": {
         "php": "8.2.*",
+        "dektrium/yii2-user": "0.9.*",
+        "dektrium/yii2-rbac": "1.0.0-alpha@dev",
         "yiisoft/yii2": "2.0.*",
         "yiisoft/yii2-bootstrap": "2.0.*",
-        "yiisoft/yii2-swiftmailer": "2.0.*",
-        "dektrium/yii2-user": "0.9.*",
-        "dektrium/yii2-rbac": "1.0.0-alpha@dev"
+        "yiisoft/yii2-swiftmailer": "^2.1"
     },
     "require-dev": {
-        "yiisoft/yii2-debug": "2.0.*",
+        "yiisoft/yii2-debug": "2.1.*",
         "yiisoft/yii2-gii": "2.2.*",
         "yiisoft/yii2-faker": "2.0.*",
         "codeception/codeception": "^5.1"
