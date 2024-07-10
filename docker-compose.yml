@@ -13,7 +13,7 @@ services:
 
   yii2:
     container_name: yii2
-    image: bridennis/anpx:7.1
+    image: bridennis/anpx:8.2
     env_file:
       - .env
     volumes:
@@ -24,5 +24,8 @@ services:
       - "80:80"
     restart: always
     command: /bin/sh -c "/usr/sbin/php-fpm
-      && envsubst '$$MYSQL_DATABASE $$MYSQL_USER $$MYSQL_PASSWORD' < /usr/etc/nginx.conf > /usr/local/nginx/conf/default.conf
+      && cp /usr/etc/nginx.conf /usr/local/nginx/conf/default.conf
+      && sed -i "s/_MYSQL_DATABASE/$MYSQL_DATABASE/g" /usr/local/nginx/conf/default.conf
+      && sed -i "s/_MYSQL_USER/$MYSQL_USER/g" /usr/local/nginx/conf/default.conf
+      && sed -i "s/_MYSQL_PASSWORD/$MYSQL_PASSWORD/g" /usr/local/nginx/conf/default.conf
       && /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/default.conf"
