@@ -33,7 +33,7 @@
 Требования
 ---
 
-Платформа: Nginx (Apache), MySQL 5.7, PHP 7.1.x
+Платформа: Nginx (Apache), MySQL 5.7, PHP 8.2.x
 
 
 Установка (Deployment)
