@@ -23,7 +23,10 @@ services:
     ports:
       - "80:80"
     restart: always
+    depends_on:
+      - yii2-mysql
     command: /bin/sh -c "/usr/sbin/php-fpm
+      && /var/www/html/infra/init.sh
       && cp /usr/etc/nginx.conf /usr/local/nginx/conf/default.conf
       && sed -i "s/_MYSQL_DATABASE/$MYSQL_DATABASE/g" /usr/local/nginx/conf/default.conf
       && sed -i "s/_MYSQL_USER/$MYSQL_USER/g" /usr/local/nginx/conf/default.conf
