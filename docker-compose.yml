@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   yii2-mysql:
     container_name: yii2-mysql
@@ -13,7 +11,7 @@ services:
 
   yii2:
     container_name: yii2
-    image: bridennis/anpx:8.2
+    image: bridennis/anpx:8.3
     env_file:
       - .env
     volumes:

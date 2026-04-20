@@ -14,7 +14,7 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "php": "8.2.*",
+        "php": "8.3.*",
         "dektrium/yii2-user": "0.9.*",
         "dektrium/yii2-rbac": "1.0.0-alpha@dev",
         "yiisoft/yii2": "2.0.*",
@@ -25,7 +25,7 @@
         "yiisoft/yii2-debug": "2.1.*",
         "yiisoft/yii2-gii": "2.2.*",
         "yiisoft/yii2-faker": "2.0.*",
-        "codeception/codeception": "^5.1"
+        "codeception/codeception": "^5.3"
     },
     "config": {
         "process-timeout": 1800,
